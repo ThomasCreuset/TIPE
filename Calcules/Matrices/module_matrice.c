@@ -155,7 +155,8 @@ valeur det_matrice(matrice* matriceEntree) {
         }
     }
     // calcule du déterminant (on se ramène à la transoposé si le calcule le plus intéressant est sur une colonne)
-    valeur det = 0;
+    valeur det   = 0;
+    valeur signe = (-1)**(idMeilleur);
     if (estVertical) {
         matriceEntree = transp_matrice(matriceEntree);
     }
@@ -175,8 +176,9 @@ valeur det_matrice(matrice* matriceEntree) {
                     ligneTemp += 1;
                 }
             }
-            det += matriceEntree->contenu[idMeilleur][colonneEnCours] * det_matrice(matriceTemp);
+            det += signe * matriceEntree->contenu[idMeilleur][colonneEnCours] * det_matrice(matriceTemp);
         }
+        signe *= -1;
     }
     supprimer_matrice(matriceTemp);
     return det;
