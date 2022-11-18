@@ -18,6 +18,12 @@ typedef struct {
     double z; //Epaisseur de l'élément
 } element;
 
+typedef struct {
+    double valeur;
+    bool existe;
+} force;
+
+
 /* - Déclarations (f: fonctions; p: procedure; (a) possible en analogique) - */
 
 point init_point(double x, double y);
@@ -54,8 +60,8 @@ void assemble_Kg(matrice* Ke, matrice* Kg, element* monElement);
 /* ~ fonctions du type element ~ */
 point init_point(double x, double y){
     point pt;
-    pt.x=x;
-    pt.y=y;
+    pt.x = x;
+    pt.y = y;
     return pt;
 }
 
@@ -99,7 +105,7 @@ void liberer_element(element* monElement) {
 /* ~ fonctions générals ~ */
 
 double obtenir_det_jacobien(element* monElement) {
-    return monElement->delta_x[0][2] * monElement->delta_y[1][2] - monElement->delta_x[1][2] * monElement->delta_y[0][2];
+    return abs(monElement->delta_x[0][2] * monElement->delta_y[1][2] - monElement->delta_x[1][2] * monElement->delta_y[0][2]);
 }
 
 matrice* obtenir_matrice_B(element* monElement) {
@@ -225,6 +231,21 @@ void assemble_Kg(matrice* Ke, matrice* Kg, element* monElement) {
     }
 }
 
+matrice* reduction_matrice(force* mesForces, matrice* ancienneB, int nbrePoints) {
+    int* dictionnaire   = malloc(sizeof(int) * nbrePoints);
+    int nbrePointsFinal = 0;
+    int idCurrent       = 0;
+    for (int idPoint = 0; idPoint < nbrePoints; idPoint++) {
+        dictionnaire[idPoint] = -1; // si le points n'est pas gardé il gardera cette valeur
+        if (!(mesForces[idPoint].existe)) {
+            nbrePointsFinal++;
+            dictionnaire[idPoint] = idCurrent;
+            idCurrent++;
+        }
+    }
+    // renverser le dictionnaire puis créer la matrice réduite
+}
+
 int obtenir_demi_bande(element** elements, int nbElements, int nbPoints) {
 
     int max     = elements[0]->idPoints[0];
@@ -256,6 +277,7 @@ int obtenir_demi_bande(element** elements, int nbElements, int nbPoints) {
 }
 
 
+/* ~ main ~ */
 
 int main() {
     
@@ -268,4 +290,3 @@ int main() {
     */
     return EXIT_SUCCESS;
 }
-
