@@ -26,7 +26,7 @@ Documentation:
 #include <time.h>
 #include <math.h>
 #include <string.h>
-#include "matrices.h"
+#include "module_matrice.h"
 
 
 /* - Constantes - */
@@ -50,7 +50,7 @@ typedef struct
 {
     int* indices;
     double e; // Pa module de Young
-    double s; // m^2 section
+    double a; // m^2 section
 } element_t;
 
 typedef struct
@@ -66,8 +66,14 @@ typedef struct
 
 /* - Décalrations - */
 
-probleme_t* lecture_donnees(char* liens);
+probleme_t* lecture_donnees(char* lien);
 /* f - récupère les données à l'adresse fournie */
+
+void ecrit_resultat(char* lien, probleme_t* probleme);
+/* f - écrit les données traités à l'adresse fournie */
+
+void supprime_probleme(probleme_t* probleme);
+/* f - delete la structure du problème */
 
 matrice* raideur_element(probleme_t* probleme, int i);
 /* f - créer la matrice de raideur associée à l'élément d'indice i élément */
@@ -166,6 +172,8 @@ probleme_t* lecture_donnees(char* lien)
 
     // Lecture des elements
 
+    probleme->elements = malloc(sizeof(element_t) * probleme->nbreElements);
+
     for (int i = 0; i < probleme->nbreElements; ++i)
     {
         // Initialisation de l'élément
@@ -174,10 +182,75 @@ probleme_t* lecture_donnees(char* lien)
 
         // Lecture de l'élément
 
-        fscanf(fichier, "%d;%d;%lf;lf\n", &(probleme->elements[i].indices[0]), &(probleme->elements[i].indices[1]), &(probleme->elements[i].e), &(probleme->elements[i].a));
+        fscanf(fichier, "%d;%d;%lf;%lf\n", &(probleme->elements[i].indices[0]), &(probleme->elements[i].indices[1]), &(probleme->elements[i].e), &(probleme->elements[i].a));
     }
 
     fclose(fichier);
+    
+    return probleme;
+}
+
+void ecrit_resultat(char* lien, probleme_t* probleme)
+{
+    // Ouverture du fichier
+
+    FILE* fichier = NULL;
+
+    fichier = fopen(lien, "w");
+
+    // Ecriture des informations primaires
+
+    fprintf(fichier, "%d;%d\n", probleme->nbreNoeuds, probleme->nbreElements);
+
+    // Ecriture des noeuds
+
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
+    {
+        for (int d = 0; d < Dimension; ++d)
+        {
+            fprintf(fichier, "%lf;%lf;%lf\n", probleme->noeuds[i].position->contenu[d][0], probleme->noeuds[i].deplacement->contenu[d][0], probleme->noeuds[i].force->contenu[d][0]);
+        }
+    }
+
+    // Ecriture des elements
+
+    for (int i = 0; i < probleme->nbreElements; ++i)
+    {
+        fprintf(fichier, "%d;%d;%lf;%lf\n", probleme->elements[i].indices[0], probleme->elements[i].indices[1], probleme->elements[i].e, probleme->elements[i].a);
+    }
+
+    fclose(fichier);
+}
+
+void supprime_probleme(probleme_t* probleme)
+{
+    // free des noeuds
+
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
+    {
+        supprimer_matrice(probleme->noeuds[i].position);
+        supprimer_matrice(probleme->noeuds[i].deplacement);
+        supprimer_matrice(probleme->noeuds[i].force);
+        free(probleme->noeuds[i].typeConstraite);
+        free(probleme->noeuds[i].indicesK);
+    }
+
+    free(probleme->noeuds);
+
+    // free des elements
+
+    for (int i = 0; i < probleme->nbreElements; ++i)
+    {
+        free(probleme->elements[i].indices);
+    }
+
+    free(probleme->elements);
+
+    // free du probleme
+
+    free(probleme);
+
+    return;
 }
 
 matrice* raideur_element(probleme_t* probleme, int i)
@@ -188,17 +261,28 @@ matrice* raideur_element(probleme_t* probleme, int i)
     int indice2 = probleme->elements[i].indices[1];
 
     double x1 = probleme->noeuds[indice1].position->contenu[0][0];
-    double y1 = noeuds[indice1].position->contenu[1][0];
-    double x2 = noeuds[indice2].position->contenu[0][0];
-    double y2 = noeuds[indice2].position->contenu[1][0];
+    double y1 = probleme->noeuds[indice1].position->contenu[1][0];
+    double x2 = probleme->noeuds[indice2].position->contenu[0][0];
+    double y2 = probleme->noeuds[indice2].position->contenu[1][0];
 
     double deltax = x2 - x1;
     double deltay = y2 - y1;
 
-    double lougeurProj = sqrt(deltax * deltax + deltay * deltay);
+    double longeurProj = sqrt(deltax * deltax + deltay * deltay);
 
-    double cosinus = deltax / lougeurProj;
-    double sinus   = deltay / lougeurProj;
+    double cosinus;
+    double sinus;
+
+    if (longeurProj == 0.0) // on évite la division par 0
+    {
+        cosinus = 1.0;
+        sinus   = 0.0;
+    }
+    else
+    {
+        cosinus = deltax / longeurProj;
+        sinus   = deltay / longeurProj;
+    }
 
     // - création de la matrice de rotation R(-angle) (A)
 
@@ -206,24 +290,29 @@ matrice* raideur_element(probleme_t* probleme, int i)
 
     for (int n = 0; n < NoeudsParElement; ++n)
     {
-        mat_A->contenu[0 + NoeudsParElement * n][0 + NoeudsParElement * n] = cosinus;
-        mat_A->contenu[0 + NoeudsParElement * n][1 + NoeudsParElement * n] = sinus;
-        mat_A->contenu[1 + NoeudsParElement * n][0 + NoeudsParElement * n] = -sinus;
-        mat_A->contenu[1 + NoeudsParElement * n][1 + NoeudsParElement * n] = cosinus;
-        mat_A->contenu[2 + NoeudsParElement * n][2 + NoeudsParElement * n] = 1.0;
+        mat_A->contenu[0 + Dimension * n][0 + Dimension * n] = cosinus;
+        mat_A->contenu[0 + Dimension * n][1 + Dimension * n] = sinus;
+        mat_A->contenu[1 + Dimension * n][0 + Dimension * n] = -sinus;
+        mat_A->contenu[1 + Dimension * n][1 + Dimension * n] = cosinus;
+        mat_A->contenu[2 + Dimension * n][2 + Dimension * n] = 1.0;
     }
 
     // - calcule des positions après la première rotation
 
-    matrice* nouvellePosition1 = mult_matrice(mat_A, probleme->noeuds[indice1].position);
-    matrice* nouvellePosition2 = mult_matrice(mat_A, probleme->noeuds[indice2].position);
+    matrice* positions = creer_matrice(Dimension * 2, 1);
+    for (int d = 0; d < Dimension; ++d)
+    {
+        positions->contenu[d][0]           = probleme->noeuds[indice1].position->contenu[d][0];
+        positions->contenu[Dimension+d][0] = probleme->noeuds[indice2].position->contenu[d][0];
+    }
+    matrice* nouvellePositions = mult_matrice(mat_A, positions);
 
     // Calcul de la rotation selon Oy
 
-    x1        = nouvellePosition1->contenu[0][0];
-    double z1 = nouvellePosition1->contenu[2][0];
-    x2        = nouvellePosition2->contenu[0][0];
-    double z2 = nouvellePosition2->contenu[2][0];
+    x1        = nouvellePositions->contenu[0][0];
+    double z1 = nouvellePositions->contenu[2][0];
+    x2        = nouvellePositions->contenu[3][0];
+    double z2 = nouvellePositions->contenu[5][0];
 
     deltax        = x2 - x1;
     double deltaz = z2 - z1;
@@ -239,11 +328,11 @@ matrice* raideur_element(probleme_t* probleme, int i)
 
     for (int n = 0; n < NoeudsParElement; ++n)
     {
-        mat_B->contenu[0 + NoeudsParElement * n][0 + NoeudsParElement * n] = cosinus;
-        mat_B->contenu[0 + NoeudsParElement * n][2 + NoeudsParElement * n] = -sinus;
-        mat_B->contenu[1 + NoeudsParElement * n][1 + NoeudsParElement * n] = 1.0;
-        mat_B->contenu[2 + NoeudsParElement * n][0 + NoeudsParElement * n] = sinus;
-        mat_B->contenu[2 + NoeudsParElement * n][2 + NoeudsParElement * n] = cosinus;
+        mat_B->contenu[0 + Dimension * n][0 + Dimension * n] = cosinus;
+        mat_B->contenu[0 + Dimension * n][2 + Dimension * n] = -sinus;
+        mat_B->contenu[1 + Dimension * n][1 + Dimension * n] = 1.0;
+        mat_B->contenu[2 + Dimension * n][0 + Dimension * n] = sinus;
+        mat_B->contenu[2 + Dimension * n][2 + Dimension * n] = cosinus;
     }
 
     // Calcul de la matrice de raideur de l'élément
@@ -252,48 +341,43 @@ matrice* raideur_element(probleme_t* probleme, int i)
 
     matrice* mat_K = creer_matrice(Dimension * NoeudsParElement, Dimension * NoeudsParElement);
 
-    double constante = (probleme->elements[i].e) * (probleme->elements[i].s) / longeur;
+    double constante = (probleme->elements[i].e) * (probleme->elements[i].a) / longeur;
 
     mat_K->contenu[0][0]                 = constante;
     mat_K->contenu[0][Dimension]         = -constante;
     mat_K->contenu[Dimension][0]         = -constante;
     mat_K->contenu[Dimension][Dimension] = constante;
 
-    // - calcule de la matrice dans la base tournée A x B x K x tA x tB
+    // - calcule de la matrice dans la base tournée A x B x K x tB x tA = AB x K x t(AB)
 
-    matrice* mat_tA = transp_matrice(mat_A);
-    matrice* mat_tB = transp_matrice(mat_B);
-
-    matrice* mat_AB   = mult_matrice(mat_A, mat_B);
-    matrice* mat_tAtB = mult_matrice(mat_tA, mat_tB);
+    matrice* mat_AB  = mult_matrice(mat_A, mat_B);
+    matrice* mat_tAB = transp_matrice(mat_AB);
 
     matrice* mat_ABK      = mult_matrice(mat_AB, mat_K);
-    matrice* mat_K_finale = mult_matrice(mat_ABK, mat_tAtB);
+    matrice* mat_K_finale = mult_matrice(mat_ABK, mat_tAB);
 
     // free des matrices intermédiaires et retour
 
-    supp_matrice(mat_A);
-    supp_matrice(nouvellePosition1);
-    supp_matrice(nouvellePosition2);
-    supp_matrice(mat_K);
-    supp_matrice(mat_tA);
-    supp_matrice(mat_tB);
-    supp_matrice(mat_AB);
-    supp_matrice(mat_tAtB);
-    supp_matrice(mat_ABK);
-
+    supprimer_matrice(mat_A);
+    supprimer_matrice(positions);
+    supprimer_matrice(nouvellePositions);
+    supprimer_matrice(mat_K);
+    supprimer_matrice(mat_AB);
+    supprimer_matrice(mat_tAB);
+    supprimer_matrice(mat_ABK);
+    
     return mat_K_finale;
 }
 
 matrice* creation_matrice_raideur(probleme_t* probleme)
 {
     // Initialisation de la matrice
-
-    double** matriceRaideur = creer_matrice(NombreDeNoeuds * Dimension, NombreDeNoeuds * Dimension);
-
+    
+    matrice* matriceRaideur = creer_matrice((probleme->nbreNoeuds) * Dimension, (probleme->nbreNoeuds) * Dimension);
+    
     // Assemblage de la matrice
 
-    for (int i = 0; i < NombreElements; ++i)
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
     {
         matrice* matriceElement = raideur_element(probleme, i);
 
@@ -303,7 +387,6 @@ matrice* creation_matrice_raideur(probleme_t* probleme)
         {
             for (int direction1 = 0; direction1 < Dimension; ++direction1)
             {
-
                 for (int noeud2 = 0; noeud2 < NoeudsParElement; ++noeud2)
                 {
                     for (int direction2 = 0; direction2 < Dimension; ++direction2)
@@ -316,7 +399,7 @@ matrice* creation_matrice_raideur(probleme_t* probleme)
             }
         }
 
-        supp_matrice(matriceElement);
+        supprimer_matrice(matriceElement);
     }
 
     return matriceRaideur;
@@ -330,7 +413,7 @@ matrice* recuperation_forces_connues(probleme_t* probleme)
 
     // la création de la matrice est fortement liée au tri choisi
 
-    for (int i = 0; i < NombreDeNoeuds; ++i)
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
     {
         for (int d = 0; d < Dimension; ++d)
         {
@@ -347,13 +430,13 @@ matrice* recuperation_forces_connues(probleme_t* probleme)
 
 matrice* recuperation_deplacements_connus(probleme_t* probleme)
 {
-    matrice* deplacements_connus = cree_matrice(probleme->degreeDeContrainte, 1); // vecteur colonne
+    matrice* deplacements_connus = creer_matrice(probleme->degreeDeContrainte, 1); // vecteur colonne
 
     int indice = 0;
 
     // la création de la matrice est fortement liée au tri choisi
 
-    for (int i = 0; i < NombreDeNoeuds; ++i)
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
     {
         for (int d = 0; d < Dimension; ++d)
         {
@@ -372,25 +455,29 @@ void applique_elements_finis(char* lienDonnees, char* lienSortie) // A MODIFIER 
 {
     // précalculs
 
-    probleme_t* probleme = lecture_donnees(lien);
+    probleme_t* probleme = lecture_donnees(lienDonnees);
+    
+    printf("donnees lues\n");
 
     matrice* matriceRaideur = creation_matrice_raideur(probleme);
+    
+    printf("matrice créée\n");
 
     // récupération des matrices
 
     matrice* forces_connues      = recuperation_forces_connues(probleme);
     matrice* deplacements_connus = recuperation_deplacements_connus(probleme);
-    matrice* k1                  = sous_matrice(matriceRaideur, probleme->degreeDeLiberte, probleme->degreeDeLiberte, 0, 0);
-    matrice* k2                  = sous_matrice(matriceRaideur, probleme->degreeDeLiberte, probleme->degreeDeContrainte, 0, probleme->degreeDeLiberte);
-    matrice* k3                  = sous_matrice(matriceRaideur, probleme->degreeDeContrainte, probleme->degreeDeLiberte, probleme->degreeDeLiberte, 0);
-    matrice* k4                  = sous_matrice(matriceRaideur, probleme->degreeDeContrainte, probleme->degreeDeContrainte, probleme->degreeDeLiberte, probleme->degreeDeLiberte);
+    matrice* k1                  = sous_matrice(matriceRaideur, 0, 0, probleme->degreeDeLiberte, probleme->degreeDeLiberte);
+    matrice* k2                  = sous_matrice(matriceRaideur, 0, probleme->degreeDeLiberte, probleme->degreeDeLiberte, probleme->degreeDeContrainte);
+    matrice* k3                  = sous_matrice(matriceRaideur, probleme->degreeDeLiberte, 0, probleme->degreeDeContrainte, probleme->degreeDeLiberte);
+    matrice* k4                  = sous_matrice(matriceRaideur, probleme->degreeDeLiberte, probleme->degreeDeLiberte, probleme->degreeDeContrainte, probleme->degreeDeContrainte);
 
     // calculs matriciels
 
     // A / F = Fc - K2 x Uc
     matrice* k2_x_uc = mult_matrice(k2, deplacements_connus);
 
-    matrice* force_temp = sous_matrice(forces_connues, k2_x_uc);
+    matrice* force_temp = soustract_matrice(forces_connues, k2_x_uc);
 
     // B / Ui = K1^-1 x F
 
@@ -405,55 +492,48 @@ void applique_elements_finis(char* lienDonnees, char* lienSortie) // A MODIFIER 
 
     matrice* forces_inconnues = add_matrice(mult1, mult2);
 
-    // mise à jour des noeuds (A FINIR)
+    // mise à jour des noeuds
 
-    // mise en forme des résultats
+    int idTampDepl = 0;
+    int idTampForc = 0;
 
-    FILE* fichier = NULL;
-
-    fichier = fopen("resultat.txt", "w");
-
-    int idTampDeplC = 0;
-    int idTampDeplI = 0;
-    int idTampForcC = 0;
-    int idTampForcI = 0;
-
-    for (int i = 0; i < NombreDeNoeuds; ++i)
+    for (int i = 0; i < probleme->nbreNoeuds; ++i)
     {
-        fprintf(fichier, "%d:\n", i);
-
-        for (int j = 0; j < Dimension; ++j)
+        for (int d = 0; d < Dimension; ++d)
         {
-            if (conditionsLimites[i][j] == 1)
+            if (probleme->noeuds[i].typeConstraite[d] == 1)
             {
-                fprintf(fichier, "%lf | %lf | %lf\n", noeuds[i][j], noeuds[i][j] + deplacements_inconnus[idTampDeplI][0], forces_connues[idTampForcC][0]);
-                ++idTampDeplI;
-                ++idTampForcC;
+                probleme->noeuds[i].deplacement->contenu[d][0] = deplacements_inconnus->contenu[idTampDepl][0];
+                ++idTampDepl;
             }
             else
             {
-                fprintf(fichier, "%lf | %lf | %lf\n", noeuds[i][j], noeuds[i][j] + deplacements_connus[idTampForcC][0], forces_inconnues[idTampForcI][0]);
-                ++idTampDeplC;
-                ++idTampForcI;
+                probleme->noeuds[i].force->contenu[d][0] = forces_inconnues->contenu[idTampForc][0];
+                ++idTampForc;
             }
         }
     }
 
-    fclose(fichier);
-
     // free et retour (CHANGER)
 
-    free(tableau_noeud_indice);
-    free_matrice(kic_x_uc, degree_de_liberte);
-    free_matrice(force_temp, degree_de_liberte);
-    free_matrice(invKii, degree_de_liberte);
-    free_matrice(mult1, degree_de_contrainte);
-    free_matrice(mult2, degree_de_contrainte);
-    free_matrice(deplacements_connus, degree_de_contrainte);
-    free_matrice(deplacements_inconnus, degree_de_liberte);
-    free_matrice(forces_connues, degree_de_liberte);
-    free_matrice(forces_inconnues, degree_de_contrainte);
-    free_matrice(matriceRaideur, NombreDeNoeuds * Dimension);
+    ecrit_resultat(lienSortie, probleme);
+
+    supprimer_matrice(matriceRaideur);
+    supprimer_matrice(forces_connues);
+    supprimer_matrice(deplacements_connus);
+    supprimer_matrice(k1);
+    supprimer_matrice(k2);
+    supprimer_matrice(k3);
+    supprimer_matrice(k4);
+    supprimer_matrice(k2_x_uc);
+    supprimer_matrice(force_temp);
+    supprimer_matrice(invK1);
+    supprimer_matrice(deplacements_inconnus);
+    supprimer_matrice(mult1);
+    supprimer_matrice(mult2);
+    supprimer_matrice(forces_inconnues);
+
+    supprime_probleme(probleme);
 
     return;
 }
@@ -466,32 +546,7 @@ int main()
 {
     srand(time(NULL));
 
-    double n1[Dimension] = {0.0, 0.0};
-    double n2[Dimension] = {1.0, 0.0};
-    double n3[Dimension] = {0.5, 1.0};
-    double* noeuds[NombreDeNoeuds] = {n1, n2, n3};
-
-    int e1[Dimension] = {0, 1};
-    int e2[Dimension] = {1, 2};
-    int e3[Dimension] = {2, 0};
-    int* elements[NombreElements] = {e1, e2, e3};
-
-    int c1[Dimension] = {-1, -1};
-    int c2[Dimension] = {1, -1};
-    int c3[Dimension] = {1, 1};
-    int* conditionsLimites[NombreDeNoeuds] = {c1, c2, c3};
-
-    double f1[Dimension] = {0.0, 0.0};
-    double f2[Dimension] = {0.0, 0.0};
-    double f3[Dimension] = {0.0, -20.0};
-    double* forces[NombreDeNoeuds] = {f1, f2, f3};
-
-    double d1[Dimension] = {0.0, 0.0};
-    double d2[Dimension] = {0.0, 0.0};
-    double d3[Dimension] = {0.0, -2.0};
-    double* deplacements[NombreDeNoeuds] = {d1, d2, d3};
-
-    applique_elements_finis(noeuds, elements, conditionsLimites, forces, deplacements);
+    applique_elements_finis("donnees.txt", "resultat.txt");
 
     printf("Termine.\n");
     return 0;
