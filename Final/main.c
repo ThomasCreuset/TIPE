@@ -451,7 +451,7 @@ matrice* recuperation_deplacements_connus(probleme_t* probleme)
     return deplacements_connus;
 }
 
-void applique_elements_finis(char* lienDonnees, char* lienSortie) // A MODIFIER !!!!!
+void applique_elements_finis(char* lienDonnees, char* lienSortie)
 {
     // précalculs
 
@@ -514,7 +514,7 @@ void applique_elements_finis(char* lienDonnees, char* lienSortie) // A MODIFIER 
         }
     }
 
-    // free et retour (CHANGER)
+    // free et retour
 
     ecrit_resultat(lienSortie, probleme);
 
