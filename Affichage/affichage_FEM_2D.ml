@@ -1,71 +1,61 @@
 
 (*Pour Windows*)
-(* #load "graphics.cma";; 
-Graphics.open_graph "800x600";; *) 
+(*
+#load "graphics.cma";; 
+Graphics.open_graph "800x600";;
+open Graphics;;
+open_graph "720x1280";;
+*)
 
 (*Pour Linux*)
 #use "topfind";;
 #require "graphics";;
 open Graphics;;
-
 let hauteur=720 and largeur=1280;;
 open_graph "";;
 resize_window largeur hauteur;;
 
+(*------------Types,variables et fonctions outils--------*)
 
-(*------------Types et fonction outil--------*)
-(* Partie 1 *)
-(* Q1 *)
 
 type point   = {x: float;  y: float;  z: float};;
 type vecteur = {vx: float; vy: float; vz: float};;
 
-(* Q2 *)
 
 let x0   = ref (float_of_int (size_x()/2))
 and y0   = ref (float_of_int (size_y()/2))
 and zoom = ref 150.;;
 
-let couleur_lumiere   = (255, 255, 255);;
-let direction_lumiere = {vx=0.; vy= 0.; vz=1.};;
 
 let base = ref ({vx = 1.; vy = 0.; vz = 0.},
 {vx = 0.; vy = 1.; vz = 0.},
 {vx = 0.; vy = 0.; vz = 1.});;
 
-(* Q3 *)
 
 let vecteur pt1 pt2 = {vx = (pt2.x -. pt1.x); vy = (pt2.y -. pt1.y); vz = (pt2.z -. pt1.z)};;
 
-(* Q4 *)
 
 let produit_scalaire vct1 vct2 = vct1.vx *. vct2.vx +. vct1.vy *. vct2.vy +. vct1.vz *. vct2.vz;;
 
-(* Q5 *)
 
 let norme vct = sqrt(vct.vx**2. +. vct.vy**2. +. vct.vz**2.);;
 
-(* Q6 *)
 
 let unitaire vct = {vx = (vct.vx /. (norme vct));
 						  vy = (vct.vy /. (norme vct));
 						  vz = (vct.vz /. (norme vct))};;
 
-(* Q7 *)
 
 let produit_vectoriel vct1 vct2 =
 	{vx = (vct1.vy *. vct2.vz -. vct1.vz *. vct2.vy);
 	 vy = (vct1.vz *. vct2.vx -. vct1.vx *. vct2.vz);
 	 vz = (vct1.vx *. vct2.vy -. vct1.vy *. vct2.vx)};;
 
-(* Q8 *)
-
 let dans_base pt bse = let vctb1, vctb2, vctb3 = bse and origine = {x = 0.; y = 0.; z = 0.} in
 	{x = (produit_scalaire (vecteur origine pt) vctb1);
 	 y = (produit_scalaire (vecteur origine pt) vctb2);
 	 z = (produit_scalaire (vecteur origine pt) vctb3)};;
 
-(* Q9 *)
 
 let rotation_x vct theta =
 	{vx = vct.vx;
@@ -88,30 +78,7 @@ let rotation_base_y theta = let vct1, vct2, vct3 = !base in
 				(rotation_y vct3 theta))
 ;;
 
-(*------Algorithme du Peintre--------------*)
-(* Q10 *)
-
-let tri tab clef = let taille = (Array.length tab) - 1 in
-	for i = 1 to taille do
-		let j = ref i and check = clef tab.(i) and temp = tab.(i) in
-		while !j > 0 && clef (tab.(!j-1)) > check do
-			tab.(!j) <- tab.(!j-1);
-			j := !j - 1;
-		done;	
-		tab.(!j) <- temp;
-	done
-;;
-
-(* Q11 *)
-
 let projette pt = (int_of_float (!x0 +. !zoom *. pt.x), int_of_float (!y0 +. !zoom *. pt.y));;
-
-(* Q12 *)
-
-let echelle v x = int_of_float ((float_of_int v) *. x);;
-
-(* Q13 *)
-
 
 let make_point (x,y,z) = { x = x; y=y; z=z;};;
 
@@ -120,7 +87,6 @@ type element = int * int * float * float;; (*indice du noeud1, indice noeud2, mo
 let make_element indice_noeud1 indice_noeud2 mod_young section = (indice_noeud1,indice_noeud2,mod_young,section);;
 
 type item_affichable = Arete of (point*point*int*int) | Noeud of (point*int*int);; (*Arete(point de départ, point d'arrivée, epaisseur,couleur) et Noeud(point, rayon, couleur)*)
-
 
 
 (*COULEURS ET EPAISSEUR DES ITEMS*)
@@ -201,17 +167,28 @@ let trace_noeud point rayon couleur =
 	set_line_width epaisseur_trait;
 	draw_circle x y rayon
 ;;
-(* Q14 *)
+
+(*------Algorithme du Peintre--------------*)
+
 
 (*Profondeur d'un point dans la direction z*)
 let cote pt = let proj = dans_base pt !base in proj.z;;
 
-(* Q15 *)
 (*Profondeur pour une arete*)
 let cote_moyenne (point1, point2) = (cote point1 +. cote point2)/. 2.;;
-(* Q16 *)
 
 (*Tri des items pour l'algo du peintre*)
+let tri tab clef = let taille = (Array.length tab) - 1 in
+	for i = 1 to taille do
+		let j = ref i and check = clef tab.(i) and temp = tab.(i) in
+		while !j > 0 && clef (tab.(!j-1)) > check do
+			tab.(!j) <- tab.(!j-1);
+			j := !j - 1;
+		done;	
+		tab.(!j) <- temp;
+	done
+;;
+
 let tri_items items_a_afficher = 
 	let clef_tri item = match item with
 		|Arete(point1,point2,epaisseur,couleur_arete) -> cote_moyenne (point1,point2)
@@ -220,8 +197,6 @@ let tri_items items_a_afficher =
 	tri items_a_afficher clef_tri
 ;;
 	
-
-(* Q17 *)
 
 (*Affichage des items dans le bon ordre*)
 let peintre_items items_a_afficher = let taille = Array.length items_a_afficher in
@@ -243,7 +218,6 @@ let peintre_items items_a_afficher = let taille = Array.length items_a_afficher 
 type 'a tableau_dynamique = {mutable support: 'a array;
 								  	  mutable taille: int};;
 
-(* Q22 *)
 let make_td element = {
 	support = Array.make 16 element; taille = 0};;
 
@@ -262,8 +236,6 @@ let ajoute td valeur =
 		td.support <- new_support;
 		td.taille <- td.taille + 1;
 		end;;
-
-(* Q23 *)
 
 
 (*Fonction qui lit le fichier contenant les données et qui renvoie les tableaux contenant :
@@ -306,12 +278,6 @@ let lecture_fichier nomFichier =
 	let coupe_tableau_dyn tab = Array.sub (tab.support) 0 (tab.taille)  in
   coupe_tableau_dyn noeuds,coupe_tableau_dyn deplacements,coupe_tableau_dyn forces ,coupe_tableau_dyn elements
 ;;
-
-
-
-(* Q24 *)
-
-
 
 
 
