@@ -9,8 +9,9 @@ Documentation:
     - Forme final du problème initiale
 
     [Fc]   [K1  K2]   [Ui]
-    [  ] = [      ] x [  ], où les indices u correspondent aux inconnus et p au connus pour U (déplacements) et F (forces)
+    [  ] = [      ] x [  ]
     [Fi]   [K3  K4]   [Uc]
+, où les indices i correspondent aux inconnus et c au connus pour U (déplacements) et F (forces)
 
     K1 : degree_de_liberte x degree_de_liberte
     K4 : degree_de_contrainte x degree_de_contrainte
@@ -273,7 +274,7 @@ matrice* raideur_element(probleme_t* probleme, int i)
     double cosinus;
     double sinus;
 
-    if (longeurProj == 0.0) // on évite la division par 0
+    if (sqrt(longeurProj * longeurProj) <= 0.001) // on évite la division par 0
     {
         cosinus = 1.0;
         sinus   = 0.0;
@@ -319,8 +320,16 @@ matrice* raideur_element(probleme_t* probleme, int i)
 
     double longeur = sqrt(deltax * deltax + deltaz * deltaz); // conservée par rotation (et plus de composante selon y)
 
-    cosinus = deltax / longeur;
-    sinus   = deltaz / longeur;
+    if (sqrt(longeur * longeur) <= 0.001) // on évite la division par 0
+    {
+        cosinus = 1.0;
+        sinus   = 0.0;
+    }
+    else
+    {
+        cosinus = deltax / longeur;
+        sinus   = deltaz / longeur;
+    }
 
     // - création de la matrice de rotation R(-angle) (B)
 
@@ -377,7 +386,7 @@ matrice* creation_matrice_raideur(probleme_t* probleme)
     
     // Assemblage de la matrice
 
-    for (int i = 0; i < probleme->nbreNoeuds; ++i)
+    for (int i = 0; i < probleme->nbreElements; ++i)
     {
         matrice* matriceElement = raideur_element(probleme, i);
 
