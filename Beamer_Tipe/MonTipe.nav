@@ -1,0 +1,231 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\partentry {Sommaire}{1}}
+\headcommand {\beamer@partpages {1}{1}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{1}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\sectionentry {1}{Choix du projet}{3}{Choix du projet}{1}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{1}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {1}{1}{1}{4}{La construction en ville: un enjeu pour les ing\'enieurs}}
+\headcommand {\slideentry {1}{1}{1}{4/4}{La construction en ville: un enjeu pour les ing\'enieurs}{1}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\beamer@subsectionentry {1}{1}{2}{5}{Mod\'elisation informatique}}
+\headcommand {\slideentry {1}{2}{1}{5/5}{Mod\'elisation informatique}{1}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {1}{1}{3}{6}{M\'ethode des \'el\'ements finis}}
+\headcommand {\slideentry {1}{3}{1}{6/6}{M\'ethode des \'el\'ements finis}{1}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@sectionpages {3}{6}}
+\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\sectionentry {2}{M\'ethode des \'el\'ements finis}{7}{M\'ethode des \'el\'ements finis}{1}}
+\headcommand {\slideentry {2}{0}{1}{7/7}{}{1}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {1}{2}{1}{8}{M\'ethode de Galerkine}}
+\headcommand {\slideentry {2}{1}{1}{8/8}{M\'ethode de Galerkine}{1}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\beamer@subsectionentry {1}{2}{2}{9}{M\'ethode des ressorts}}
+\headcommand {\slideentry {2}{2}{1}{9/9}{M\'ethode des ressorts}{1}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\beamer@subsectionentry {1}{2}{3}{10}{Loi de Hooke}}
+\headcommand {\slideentry {2}{3}{1}{10/10}{Loi de Hooke}{1}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\beamer@subsectionentry {1}{2}{4}{11}{G\'en\'eralisation, matrice de raideur}}
+\headcommand {\slideentry {2}{4}{1}{11/11}{G\'en\'eralisation, matrice de raideur}{1}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\beamer@subsectionentry {1}{2}{5}{12}{Deux astuces}}
+\headcommand {\slideentry {2}{5}{1}{12/12}{Deux astuces}{1}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\beamer@subsectionentry {1}{2}{6}{13}{Affichage}}
+\headcommand {\slideentry {2}{6}{1}{13/13}{Affichage}{1}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@sectionpages {7}{13}}
+\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\sectionentry {3}{Optimisation}{14}{Optimisation}{1}}
+\headcommand {\slideentry {3}{0}{1}{14/14}{}{1}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionentry {1}{3}{1}{15}{Analogique et num\'erique, d\'efaults et qualit\'es}}
+\headcommand {\slideentry {3}{1}{1}{15/15}{Analogique et num\'erique, d\'efaults et qualit\'es}{1}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {1}{3}{2}{16}{Retours exp\'erimentaux}}
+\headcommand {\slideentry {3}{2}{1}{16/16}{Retours exp\'erimentaux}{1}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@subsectionentry {1}{3}{3}{17}{Une solution inattendue et conclusion}}
+\headcommand {\slideentry {3}{3}{1}{17/17}{Une solution inattendue et conclusion}{1}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@sectionpages {14}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\sectionentry {4}{Annexes}{18}{Annexes}{1}}
+\headcommand {\slideentry {4}{0}{1}{18/18}{}{1}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\beamer@subsectionentry {1}{4}{1}{19}{Code C}}
+\headcommand {\slideentry {4}{1}{1}{19/19}{Code C}{1}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {4}{1}{2}{20/20}{Code C}{1}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {4}{1}{2}{20/21}{Code C}{1}}
+\headcommand {\beamer@framepages {20}{21}}
+\headcommand {\slideentry {4}{1}{2}{20/22}{Code C}{1}}
+\headcommand {\beamer@framepages {20}{22}}
+\headcommand {\slideentry {4}{1}{2}{20/23}{Code C}{1}}
+\headcommand {\beamer@framepages {20}{23}}
+\headcommand {\slideentry {4}{1}{3}{24/24}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {4}{1}{3}{24/25}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{25}}
+\headcommand {\slideentry {4}{1}{3}{24/26}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{26}}
+\headcommand {\slideentry {4}{1}{3}{24/27}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{27}}
+\headcommand {\slideentry {4}{1}{3}{24/28}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{28}}
+\headcommand {\slideentry {4}{1}{3}{24/29}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{29}}
+\headcommand {\slideentry {4}{1}{3}{24/30}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{30}}
+\headcommand {\slideentry {4}{1}{3}{24/31}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{31}}
+\headcommand {\slideentry {4}{1}{3}{24/32}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{32}}
+\headcommand {\slideentry {4}{1}{3}{24/33}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{33}}
+\headcommand {\slideentry {4}{1}{3}{24/34}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{34}}
+\headcommand {\slideentry {4}{1}{3}{24/35}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{35}}
+\headcommand {\slideentry {4}{1}{3}{24/36}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{36}}
+\headcommand {\slideentry {4}{1}{3}{24/37}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{37}}
+\headcommand {\slideentry {4}{1}{3}{24/38}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{38}}
+\headcommand {\slideentry {4}{1}{3}{24/39}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{39}}
+\headcommand {\slideentry {4}{1}{3}{24/40}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{40}}
+\headcommand {\slideentry {4}{1}{3}{24/41}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{41}}
+\headcommand {\slideentry {4}{1}{3}{24/42}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{42}}
+\headcommand {\slideentry {4}{1}{3}{24/43}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{43}}
+\headcommand {\slideentry {4}{1}{3}{24/44}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{44}}
+\headcommand {\slideentry {4}{1}{3}{24/45}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{45}}
+\headcommand {\slideentry {4}{1}{3}{24/46}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{46}}
+\headcommand {\slideentry {4}{1}{3}{24/47}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{47}}
+\headcommand {\slideentry {4}{1}{3}{24/48}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{48}}
+\headcommand {\slideentry {4}{1}{3}{24/49}{Code C}{1}}
+\headcommand {\beamer@framepages {24}{49}}
+\headcommand {\slideentry {4}{1}{4}{50/50}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {4}{1}{4}{50/51}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{51}}
+\headcommand {\slideentry {4}{1}{4}{50/52}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{52}}
+\headcommand {\slideentry {4}{1}{4}{50/53}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{53}}
+\headcommand {\slideentry {4}{1}{4}{50/54}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{54}}
+\headcommand {\slideentry {4}{1}{4}{50/55}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{55}}
+\headcommand {\slideentry {4}{1}{4}{50/56}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{56}}
+\headcommand {\slideentry {4}{1}{4}{50/57}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{57}}
+\headcommand {\slideentry {4}{1}{4}{50/58}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{58}}
+\headcommand {\slideentry {4}{1}{4}{50/59}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{59}}
+\headcommand {\slideentry {4}{1}{4}{50/60}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{60}}
+\headcommand {\slideentry {4}{1}{4}{50/61}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{61}}
+\headcommand {\slideentry {4}{1}{4}{50/62}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{62}}
+\headcommand {\slideentry {4}{1}{4}{50/63}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{63}}
+\headcommand {\slideentry {4}{1}{4}{50/64}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{64}}
+\headcommand {\slideentry {4}{1}{4}{50/65}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{65}}
+\headcommand {\slideentry {4}{1}{4}{50/66}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{66}}
+\headcommand {\slideentry {4}{1}{4}{50/67}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{67}}
+\headcommand {\slideentry {4}{1}{4}{50/68}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{68}}
+\headcommand {\slideentry {4}{1}{4}{50/69}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{69}}
+\headcommand {\slideentry {4}{1}{4}{50/70}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{70}}
+\headcommand {\slideentry {4}{1}{4}{50/71}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{71}}
+\headcommand {\slideentry {4}{1}{4}{50/72}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{72}}
+\headcommand {\slideentry {4}{1}{4}{50/73}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{73}}
+\headcommand {\slideentry {4}{1}{4}{50/74}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{74}}
+\headcommand {\slideentry {4}{1}{4}{50/75}{Code C}{1}}
+\headcommand {\beamer@framepages {50}{75}}
+\headcommand {\beamer@subsectionpages {19}{75}}
+\headcommand {\beamer@subsectionentry {1}{4}{2}{76}{Code Ocaml}}
+\headcommand {\slideentry {4}{2}{1}{76/76}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {4}{2}{1}{76/77}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{77}}
+\headcommand {\slideentry {4}{2}{1}{76/78}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{78}}
+\headcommand {\slideentry {4}{2}{1}{76/79}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{79}}
+\headcommand {\slideentry {4}{2}{1}{76/80}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{80}}
+\headcommand {\slideentry {4}{2}{1}{76/81}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{81}}
+\headcommand {\slideentry {4}{2}{1}{76/82}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{82}}
+\headcommand {\slideentry {4}{2}{1}{76/83}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{83}}
+\headcommand {\slideentry {4}{2}{1}{76/84}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{84}}
+\headcommand {\slideentry {4}{2}{1}{76/85}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{85}}
+\headcommand {\slideentry {4}{2}{1}{76/86}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{86}}
+\headcommand {\slideentry {4}{2}{1}{76/87}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{87}}
+\headcommand {\slideentry {4}{2}{1}{76/88}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{88}}
+\headcommand {\slideentry {4}{2}{1}{76/89}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{89}}
+\headcommand {\slideentry {4}{2}{1}{76/90}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{90}}
+\headcommand {\slideentry {4}{2}{1}{76/91}{Code Ocaml}{1}}
+\headcommand {\beamer@framepages {76}{91}}
+\headcommand {\beamer@partpages {2}{91}}
+\headcommand {\beamer@subsectionpages {76}{91}}
+\headcommand {\beamer@sectionpages {18}{91}}
+\headcommand {\beamer@documentpages {91}}
+\headcommand {\gdef \inserttotalframenumber {91}}

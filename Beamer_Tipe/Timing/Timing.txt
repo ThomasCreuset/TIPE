@@ -1,0 +1,54 @@
+TIPE (13min45)
+
+A / Choix du projet : (3min45)
+
+30 secondes : ville -> infrastructure
+
+1) 1 minute 15
+ -> 45 secondes : enjeux ingénieur
+ -> 30 secondes : notre projet
+
+2) 2 minutes
+ -> 30 secondes : introduction informatique
+ -> 1 minute 30 : avantages
+
+3) 30 secondes
+ -> 30 secondes : enjeu global et expliquer la précense de différents calculateurs 
+
+B / Méthode des éléments : (7min)
+
+30 secondes : introduction des deux modèles étudiés
+
+1) 1 minute 30
+ -> 1 minute : méthode de Galerkine
+ -> 30 secondes : limites et problèmes
+
+2) 30 secondes
+ -> 30 secondes : introduction du modèle
+
+3) 30 secondes
+ -> 30 secondes : modèle phénoménologiqe de Hooke
+
+4) 2 minutes
+ -> 1 minute : construction de la matrice de raideur
+ -> 1 minute : Tri par conditions de Neumann (forces connues : derivé) et Dirichlet (déplacement connus : variable)
+
+5) 1 minute
+ -> 30 secondes : calcul des inconnues optimisé
+ -> 30 secondes : astuce de redressement
+
+6) 1 minute
+ -> 30 secondes : l'intérêt et l'implémentation (algorithme du peintre)
+ -> 30 secondes : l'affichage, couleurs pour les forces et version transparente pour le déplacement
+
+C / Optimisation :  (3min)
+
+1) 1 minute 30
+ -> 30 secondes : explication et mention à Mythic (source d'inspiration)
+ -> 1 minute : avantages et inconvéniants
+
+2) Vide intersidéral (gène)
+
+3) 1 minute 30
+ -> 1 minute : expliquer en quoi la physique quantique c'est génial
+ -> 30 secondes : Conclusion
