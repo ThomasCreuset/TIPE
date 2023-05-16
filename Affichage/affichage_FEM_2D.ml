@@ -111,7 +111,13 @@ tab_couleurs;; (*Censé faire un dégradé du bleu au rouge*)
 
 (*Calcule l'emplacement des noeuds après application de la force, ajoutant les déplacements*)
 let noeuds_deplaces noeuds deplacements = 
-		Array.map2 (fun point vecteur -> make_point ((point.x +. vecteur.vx),(point.y +. vecteur.vy),(point.y +. vecteur.vy)) ) noeuds deplacements 
+		Array.map2 (fun point vecteur -> 
+		print_string "Coordonnées : ";print_float point.x;print_string " "; print_float point.y;print_string " "; print_float point.z;
+		print_newline();
+		print_string "Deplacement : ";print_float vecteur.vx;print_string " "; print_float vecteur.vy;print_string " "; print_float vecteur.vz;
+		print_newline();
+		print_newline();
+		make_point ((point.x +. vecteur.vx),(point.y +. vecteur.vy),(point.z +. vecteur.vz)) ) noeuds deplacements 
 ;;
 
 (*Calcule l'épaisseur à afficher des aretes. Attention, renvoie le max et le min des sections (unité d'origine)*)
@@ -134,7 +140,7 @@ let make_items_affichables elements noeuds forces deplacements=
 	let couleurs = couleurs_noeuds noeuds forces in
 	let noeuds_depl = noeuds_deplaces noeuds deplacements in
 	let tab_aretes_originelles = Array.map2 (fun (i1,i2,young,section) epaisseur -> Arete(noeuds.(i1),noeuds.(i2),epaisseur,rgb 127 127 127) ) elements epaisseurs
-	and tab_noeuds_originels = Array.map (fun point -> Noeud(point,5,rgb 127 127 127)) noeuds
+	and tab_noeuds_originels = Array.map (fun point -> Noeud(point,3,rgb 127 127 127)) noeuds
 	and tab_aretes_deplacees = Array.map2 (fun (i1,i2,young,section) epaisseur -> Arete(noeuds_depl.(i1),noeuds_depl.(i2),epaisseur,black) ) elements epaisseurs
 	and tab_noeuds_deplaces = Array.map2 (fun point couleur -> Noeud(point,7,couleur)) noeuds_depl couleurs
 
