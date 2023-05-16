@@ -357,13 +357,13 @@ matrice* raideur_element(probleme_t* probleme, int i)
     mat_K->contenu[Dimension][0]         = -constante;
     mat_K->contenu[Dimension][Dimension] = constante;
 
-    // - calcule de la matrice dans la base tournée A x B x K x tB x tA = AB x K x t(AB)
+    // - calcule de la matrice dans la base tournée tA x tB x K x B x A = t(BA) x K x BA
 
-    matrice* mat_AB  = mult_matrice(mat_A, mat_B);
-    matrice* mat_tAB = transp_matrice(mat_AB);
+    matrice* mat_BA  = mult_matrice(mat_B, mat_A);
+    matrice* mat_tBA = transp_matrice(mat_BA);
 
-    matrice* mat_ABK      = mult_matrice(mat_AB, mat_K);
-    matrice* mat_K_finale = mult_matrice(mat_ABK, mat_tAB);
+    matrice* mat_tBAK      = mult_matrice(mat_tBA, mat_K);
+    matrice* mat_K_finale = mult_matrice(mat_tBAK, mat_BA);
 
     // free des matrices intermédiaires et retour
 
@@ -371,9 +371,9 @@ matrice* raideur_element(probleme_t* probleme, int i)
     supprimer_matrice(positions);
     supprimer_matrice(nouvellePositions);
     supprimer_matrice(mat_K);
-    supprimer_matrice(mat_AB);
-    supprimer_matrice(mat_tAB);
-    supprimer_matrice(mat_ABK);
+    supprimer_matrice(mat_BA);
+    supprimer_matrice(mat_tBA);
+    supprimer_matrice(mat_tBAK);
 
     return mat_K_finale;
 }

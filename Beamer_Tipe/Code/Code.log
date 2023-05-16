@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  16 MAY 2023 00:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  16 MAY 2023 03:11
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -226,34 +226,34 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstlang2.sty 2023/02/27 1.9 listings language file
 )
 (Ocaml/Affichage_FEM_3D.ml [25] [26] [27] [28]
-Overfull \hbox (13.85382pt too wide) in paragraph at lines 219--221
+Overfull \hbox (13.85382pt too wide) in paragraph at lines 201--203
 [][][][][] 
  []
 
 
-Overfull \hbox (27.85524pt too wide) in paragraph at lines 219--221
+Overfull \hbox (27.85524pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (9.8595pt too wide) in paragraph at lines 219--221
+Overfull \hbox (9.8595pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (9.8595pt too wide) in paragraph at lines 219--221
+Overfull \hbox (9.8595pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 [29] [30]) [31] (Code.aux) ) 
 Here is how much of TeX's memory you used:
- 4864 strings out of 476360
- 69002 string characters out of 5788025
- 2255993 words of memory out of 5000000
- 25242 multiletter control sequences out of 15000+600000
+ 4858 strings out of 476360
+ 68928 string characters out of 5788025
+ 2245993 words of memory out of 5000000
+ 25236 multiletter control sequences out of 15000+600000
  523288 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,62p,444b,1804s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,6n,62p,444b,1814s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/p
 k/ljfour/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\f
@@ -266,9 +266,9 @@ s\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C
 :\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1728.
 pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
 m1728.pk>
-Output written on Code.pdf (31 pages, 212805 bytes).
+Output written on Code.pdf (31 pages, 212545 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
+ 429 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

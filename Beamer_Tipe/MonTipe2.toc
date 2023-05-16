@@ -1,0 +1,16 @@
+\beamer@sectionintoc {1}{Choix du projet}{4}{1}{1}
+\beamer@subsectionintoc {1}{1}{La construction en ville: un enjeu pour les ing\'enieurs}{5}{1}{1}
+\beamer@subsectionintoc {1}{2}{Mod\'elisation informatique}{6}{1}{1}
+\beamer@sectionintoc {2}{M\'ethode des \'el\'ements finis}{7}{1}{2}
+\beamer@subsectionintoc {2}{1}{M\'ethode des \'el\'ements finis}{8}{1}{2}
+\beamer@subsectionintoc {2}{2}{M\'ethode des ressorts}{9}{1}{2}
+\beamer@subsectionintoc {2}{3}{Loi de Hooke}{10}{1}{2}
+\beamer@subsectionintoc {2}{4}{Deux \'etapes importantes}{11}{1}{2}
+\beamer@subsectionintoc {2}{5}{Affichage}{13}{1}{2}
+\beamer@sectionintoc {3}{Optimisation}{14}{1}{3}
+\beamer@subsectionintoc {3}{1}{Calculs analogique, int\'er\^ets}{15}{1}{3}
+\beamer@subsectionintoc {3}{2}{Retours exp\'erimentaux}{16}{1}{3}
+\beamer@sectionintoc {4}{Conclusion}{17}{1}{4}
+\beamer@sectionintoc {5}{Annexes}{19}{1}{5}
+\beamer@subsectionintoc {5}{1}{Code C}{20}{1}{5}
+\beamer@subsectionintoc {5}{2}{Code Ocaml}{77}{1}{5}

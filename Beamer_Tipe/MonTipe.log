@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  16 MAY 2023 00:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  16 MAY 2023 13:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1354,47 +1354,47 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 )
 (Code/Ocaml/Affichage_FEM_3D.ml
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-205.
+189.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Overfull \hbox (37.33151pt too wide) in paragraph at lines 219--221
+Overfull \hbox (37.33151pt too wide) in paragraph at lines 201--203
 [][][][][][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 219--221
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
 [][][] 
  []
 
 
-Overfull \hbox (52.87007pt too wide) in paragraph at lines 219--221
+Overfull \hbox (52.87007pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 219--221
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 219--221
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (39.48575pt too wide) in paragraph at lines 219--221
+Overfull \hbox (39.48575pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (39.48575pt too wide) in paragraph at lines 219--221
+Overfull \hbox (39.48575pt too wide) in paragraph at lines 201--203
 [][] 
  []
 
 
-Overfull \hbox (26.10143pt too wide) in paragraph at lines 219--221
+Overfull \hbox (26.10143pt too wide) in paragraph at lines 201--203
 []  
  []
 
@@ -1458,13 +1458,13 @@ Overfull \hbox (26.10143pt too wide) in paragraph at lines 219--221
 
  (MonTipe.aux)
 Package rerunfilecheck Info: File `MonTipe.out' has not changed.
-(rerunfilecheck)             Checksum: E100B813083FFE2278CCFC541C5F1EC4;3222.
+(rerunfilecheck)             Checksum: 1C9A1DD25949BACEA9F95DFEC754634E;3217.
  ) 
 Here is how much of TeX's memory you used:
- 27172 strings out of 476360
- 521271 string characters out of 5788025
+ 27166 strings out of 476360
+ 521199 string characters out of 5788025
  3270993 words of memory out of 5000000
- 46814 multiletter control sequences out of 15000+600000
+ 46808 multiletter control sequences out of 15000+600000
  535795 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,18n,122p,403b,1633s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1492,9 +1492,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/thoma/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/thoma/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/t
 homa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on MonTipe.pdf (91 pages, 3962649 bytes).
+Output written on MonTipe.pdf (91 pages, 3966327 bytes).
 PDF statistics:
- 3091 PDF objects out of 3580 (max. 8388607)
+ 3090 PDF objects out of 3580 (max. 8388607)
  202 named destinations out of 1000 (max. 500000)
  289 words of extra memory for PDF output out of 10000 (max. 10000000)
 
