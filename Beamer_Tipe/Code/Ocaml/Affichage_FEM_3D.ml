@@ -1,50 +1,44 @@
-
 (*Pour Windows*)
-(*
 #load "graphics.cma";; 
 Graphics.open_graph "800x600";;
 open Graphics;;
 open_graph "720x1280";;
-*)
 
-(*Pour Linux*)
+
+(*Pour Linux
 #use "topfind";;
 #require "graphics";;
 open Graphics;;
 let hauteur=720 and largeur=1280;;
 open_graph "";;
-resize_window largeur hauteur;;
+resize_window largeur hauteur;;*)
+
 
 (*------------Types,variables et fonctions outils--------*)
-
 
 type point   = {x: float;  y: float;  z: float};;
 type vecteur = {vx: float; vy: float; vz: float};;
 
-
 let x0   = ref (float_of_int (size_x()/2))
 and y0   = ref (float_of_int (size_y()/2))
-and zoom = ref 150.;;
+and zoom = ref 2.;;
 
+let affiche_originale = ref true;; (*Pour afficher la structure d'origine*)
+let affiche_modifiee = ref true;; (*Pour afficher la structure modifiee*)
 
 let base = ref ({vx = 1.; vy = 0.; vz = 0.},
 {vx = 0.; vy = 1.; vz = 0.},
 {vx = 0.; vy = 0.; vz = 1.});;
 
-
 let vecteur pt1 pt2 = {vx = (pt2.x -. pt1.x); vy = (pt2.y -. pt1.y); vz = (pt2.z -. pt1.z)};;
-
 
 let produit_scalaire vct1 vct2 = vct1.vx *. vct2.vx +. vct1.vy *. vct2.vy +. vct1.vz *. vct2.vz;;
 
-
 let norme vct = sqrt(vct.vx**2. +. vct.vy**2. +. vct.vz**2.);;
-
 
 let unitaire vct = {vx = (vct.vx /. (norme vct));
 						  vy = (vct.vy /. (norme vct));
 						  vz = (vct.vz /. (norme vct))};;
-
 
 let produit_vectoriel vct1 vct2 =
 	{vx = (vct1.vy *. vct2.vz -. vct1.vz *. vct2.vy);
@@ -56,7 +50,6 @@ let dans_base pt bse = let vctb1, vctb2, vctb3 = bse and origine = {x = 0.; y = 
 	 y = (produit_scalaire (vecteur origine pt) vctb2);
 	 z = (produit_scalaire (vecteur origine pt) vctb3)};;
 
-
 let rotation_x vct theta =
 	{vx = vct.vx;
 	 vy = vct.vy *. cos theta -. vct.vz *. sin theta;
@@ -67,6 +60,11 @@ let rotation_y vct theta =
 	 vy = vct.vy;
 	 vz = vct.vz *. cos theta -. vct.vx *. sin theta};;
 
+let rotation_z vct theta =
+	{vx = vct.vx *. cos theta -. vct.vy *. sin theta;
+	 vy = vct.vy *. cos theta +. vct.vx *. sin theta;
+	 vz = vct.vz};;
+
 let rotation_base_x theta = let vct1, vct2, vct3 = !base in
 	base := ((rotation_x vct1 theta),
 				(rotation_x vct2 theta),
@@ -75,8 +73,12 @@ let rotation_base_x theta = let vct1, vct2, vct3 = !base in
 let rotation_base_y theta = let vct1, vct2, vct3 = !base in
 	base := ((rotation_y vct1 theta),
 				(rotation_y vct2 theta),
-				(rotation_y vct3 theta))
-;;
+				(rotation_y vct3 theta));;
+
+let rotation_base_z theta = let vct1, vct2, vct3 = !base in
+	base := ((rotation_z vct1 theta),
+				(rotation_z vct2 theta),
+				(rotation_z vct3 theta));;
 
 let projette pt = (int_of_float (!x0 +. !zoom *. pt.x), int_of_float (!y0 +. !zoom *. pt.y));;
 
@@ -88,22 +90,17 @@ let make_element indice_noeud1 indice_noeud2 mod_young section = (indice_noeud1,
 
 type item_affichable = Arete of (point*point*int*int) | Noeud of (point*int*int);; (*Arete(point de départ, point d'arrivée, epaisseur,couleur) et Noeud(point, rayon, couleur)*)
 
-let affiche_originale = ref true;; (*Pour afficher la structure d'origine*)
-let affiche_modifiee = ref true;; (*Pour afficher la structure modifiee*)
 
-(*COULEURS ET EPAISSEUR DES ITEMS*)
+(*------------Couleurs et épaisseur------------*)
 
 (*Fonction pour resize des intervalles (proportionnalité)*)
 let map debut1 fin1 debut2 fin2 x = 
-  if debut1<>fin1 then
-  begin
-	let t = (x -. debut1)/.(fin1 -. debut1) in
-	(1. -. t)*. debut2 +. t*.fin2
-  end
-  else debut2
-  
-;;
-
+	if debut1 <> fin1
+	then
+		let t = (x -. debut1)/.(fin1 -. debut1) in
+		(1. -. t)*. debut2 +. t*.fin2
+	else
+		debut2;;
 
 (*Détermine la couleur d'un noeud à l'aide de la norme de la force appliquée en ce noeud*)
 let couleurs_noeuds noeuds forces =
@@ -111,10 +108,9 @@ let couleurs_noeuds noeuds forces =
 	(*let max_norme_force force1 force2 = max (norme force1) (norme force2) in
 	let min_norme_force force1 force2 = min (norme force1) (norme force2) in *)
   let max_force  = Array.fold_left max normes_forces.(0) normes_forces
-  and min_force = Array.fold_left min normes_forces.(0) normes_forces
-in
-let tab_couleurs = Array.map (fun norme_force -> let teinte = int_of_float (map min_force max_force 0. 255. norme_force) in rgb teinte 0 (255 - teinte) ) normes_forces in
-tab_couleurs;; (*Censé faire un dégradé du bleu au rouge*)
+  and min_force = Array.fold_left min normes_forces.(0) normes_forces in
+	let tab_couleurs = Array.map (fun norme_force -> let teinte = int_of_float (map min_force max_force 0. 255. norme_force) in rgb teinte 0 (255 - teinte) ) normes_forces in
+	tab_couleurs;; (*Censé faire un dégradé du bleu au rouge*)
 
 (*Calcule l'emplacement des noeuds après application de la force, ajoutant les déplacements*)
 let noeuds_deplaces noeuds deplacements = 
@@ -124,24 +120,17 @@ let noeuds_deplaces noeuds deplacements =
 		print_string "Deplacement : ";print_float vecteur.vx;print_string " "; print_float vecteur.vy;print_string " "; print_float vecteur.vz;
 		print_newline();
 		print_newline();
-		make_point ((point.x +. vecteur.vx),(point.y +. vecteur.vy),(point.z +. vecteur.vz)) ) noeuds deplacements 
-;;
+		make_point ((point.x +. vecteur.vx),(point.y +. vecteur.vy),(point.z +. vecteur.vz)) ) noeuds deplacements ;;
 
 (*Calcule l'épaisseur à afficher des aretes. Attention, renvoie le max et le min des sections (unité d'origine)*)
 let epaisseurs_elements elements = 
 	let sections = Array.map (fun (i1,i2,young,section) -> section) elements in
-let max_section = Array.fold_left max 0. sections
-and min_section = Array.fold_left min infinity sections
-and min_epaisseur = 3. (*Constantes d'épaisseurs des traits*)
-in
-print_float min_section;print_newline();print_float max_section;print_newline();print_newline(); let max_epaisseur = (max_section *. min_epaisseur) /. min_section
-in
-let tab_epaisseurs = Array.map (fun section -> let valeur = map min_section max_section min_epaisseur max_epaisseur section
-							in print_float valeur;print_newline(); int_of_float (valeur) ) sections in
-print_int tab_epaisseurs.(0); print_newline();
-print_newline();
-tab_epaisseurs,min_section,max_section
-;;
+	let max_section = Array.fold_left (fun section accu_section -> max section accu_section) 0. sections
+	and min_section = Array.fold_left (fun section accu_section -> min section accu_section) infinity sections
+	and min_epaisseur = 2. in(*Constantes d'épaisseurs des traits*)
+	let max_epaisseur = (max_section/. min_section) *. min_epaisseur in
+	let tab_epaisseurs = Array.map (fun section -> int_of_float (map min_section max_section min_epaisseur max_epaisseur section) ) sections in
+	tab_epaisseurs, min_section,max_section;;
 
 (*Crée un tableau des items à afficher (noeuds et arêtes), qui sera trié par la cote moyenne ou la cote en fonction de si c'est un poin ou une arete.
 	 Contient les aretes et noeuds avant et après application des forces*)
@@ -153,29 +142,23 @@ let make_items_affichables elements noeuds forces deplacements=
 	let tab_aretes_originelles = Array.map2 (fun (i1,i2,young,section) epaisseur -> Arete(noeuds.(i1),noeuds.(i2),epaisseur,rgb 127 127 127) ) elements epaisseurs
 	and tab_noeuds_originels = Array.map (fun point -> Noeud(point,3,rgb 127 127 127)) noeuds
 	and tab_aretes_deplacees = Array.map2 (fun (i1,i2,young,section) epaisseur -> Arete(noeuds_depl.(i1),noeuds_depl.(i2),epaisseur,black) ) elements epaisseurs
-	and tab_noeuds_deplaces = Array.map2 (fun point couleur -> Noeud(point,7,couleur)) noeuds_depl couleurs
-
-	in
+	and tab_noeuds_deplaces = Array.map2 (fun point couleur -> Noeud(point,7,couleur)) noeuds_depl couleurs in
 	(* let items_originels = Array.append tab_aretes_originelles tab_noeuds_originels
 	and items_deplaces = Array.append tab_aretes_deplacees tab_noeuds_deplaces *)
 	let items_originels =tab_aretes_originelles
-	and items_deplaces = tab_aretes_deplacees
-	in
-	items_originels,items_deplaces	
-;;
+	and items_deplaces = tab_aretes_deplacees in
+	items_originels,items_deplaces;;
 
 (*Fonction auxiliaire pour tracer une arete*)
 let trace_arete point1 point2 epaisseur couleur = 
 	let pt1 = dans_base point1 !base
-	and pt2 = dans_base point2 !base
-  in
+	and pt2 = dans_base point2 !base in
 	let x1,y1 = projette pt1
 	and x2,y2 = projette pt2 in
 	set_color couleur;
 	set_line_width epaisseur;
 	moveto x1 y1;
-	lineto x2 y2;
-;;
+	lineto x2 y2;;
 
 (*Fonction auxiliaire pour tracer un noeud*)
 let trace_noeud point rayon couleur =
@@ -185,13 +168,11 @@ let trace_noeud point rayon couleur =
 	set_color couleur;
 	fill_circle x y rayon;
 	set_color black;
-
 	set_line_width epaisseur_trait;
-	draw_circle x y rayon
-;;
+	draw_circle x y rayon;;
 
-(*------Algorithme du Peintre--------------*)
 
+(*--------------Algorithme du Peintre--------------*)
 
 (*Profondeur d'un point dans la direction z*)
 let cote pt = let proj = dans_base pt !base in proj.z;;
@@ -208,17 +189,13 @@ let tri tab clef = let taille = (Array.length tab) - 1 in
 			j := !j - 1;
 		done;	
 		tab.(!j) <- temp;
-	done
-;;
+	done;;
 
 let tri_items items_a_afficher = 
 	let clef_tri item = match item with
 		|Arete(point1,point2,epaisseur,couleur_arete) -> cote_moyenne (point1,point2)
 		|Noeud(p,rayon,couleur_noeud) -> cote p
-	in
-	tri items_a_afficher clef_tri
-;;
-	
+	in	tri items_a_afficher clef_tri;;
 
 (*Affichage des items dans le bon ordre*)
 let peintre_items liste_items_a_afficher = 
@@ -231,12 +208,10 @@ let peintre_items liste_items_a_afficher =
 		match item with 
 		| Noeud(point,rayon,couleur) -> trace_noeud point rayon couleur
 		| Arete(point1,point2,epaisseur,couleur) -> trace_arete point1 point2 epaisseur couleur
-	done
-;;
+	done;;
 
 
-(*-----Récuperation des données dans un fichier extérieur----------*)
-
+(*---------Récuperation des données dans un fichier extérieur----------*)
 
 (*Type tableau dynamique pour faciliter la récupération des données*)
 type 'a tableau_dynamique = {mutable support: 'a array;
@@ -261,7 +236,6 @@ let ajoute td valeur =
 		td.taille <- td.taille + 1;
 		end;;
 
-
 (*Fonction qui lit le fichier contenant les données et qui renvoie les tableaux contenant :
 	 -les noeuds (indicés par i)
 	 -le déplacement des noeuds (deplacement du noeud i à l'indice i)
@@ -277,10 +251,8 @@ let lecture_fichier nomFichier =
 	let deplacements = make_td deplacement_generique in
 	let forces = make_td force_generique in
 	let elements = make_td element_generique in
-	
 	let ligne = ref (input_line fichier) in
 	let nb_noeuds, nb_elements = Scanf.sscanf !ligne "%d;%d" (fun n1 n2 -> (n1,n2)) in
-	
 	for i = 0 to nb_noeuds-1 do
 		ligne:= input_line fichier;
 		let x,dx,fx = Scanf.sscanf !ligne "%f;%f;%f" (fun x dx fx-> (x,dx,fx)) in
@@ -300,53 +272,42 @@ let lecture_fichier nomFichier =
 	done;
 	close_in fichier;
 	let coupe_tableau_dyn tab = Array.sub (tab.support) 0 (tab.taille)  in
-  coupe_tableau_dyn noeuds,coupe_tableau_dyn deplacements,coupe_tableau_dyn forces ,coupe_tableau_dyn elements
-;;
-
-
+  coupe_tableau_dyn noeuds,coupe_tableau_dyn deplacements,coupe_tableau_dyn forces ,coupe_tableau_dyn elements;;
 
 (*Boucle pour afficher la structure et la faire tourner à l'aide du clavier*)
 let en_sync_items items_originels items_deplaces =
 	auto_synchronize false;
 	display_mode false;
-	peintre_items [items_originels;items_deplaces];
-
-		while true do
-			let event = wait_next_event [Key_pressed] in let key = event.key in
-			if key = 's' then y0 := !y0 -. 5.;
-			if key = 'z' then y0 := !y0 +. 5.;
-			if key = 'q' then x0 := !x0 -. 5.;
-			if key = 'd' then x0 := !x0 +. 5.;
-			if key = 'o' then rotation_base_y (0.05);
-			if key = 'l' then rotation_base_y (-0.05);
-			if key = 'k' then rotation_base_x (-0.05);
-			if key = 'm' then rotation_base_x (0.05);
-			if key = 'a' then zoom := !zoom +. 5.;
-			if key = 'e' then zoom := !zoom -. 5.;
-			if key = 'b' then affiche_originale:= (not !affiche_originale);
-			if key = 'n' then affiche_modifiee:= (not !affiche_modifiee);
-			clear_graph ();
-			let liste_items = ref [] in
-			if !affiche_originale then liste_items:=items_originels::(!liste_items);
-			if !affiche_modifiee then liste_items:=items_deplaces::(!liste_items);
-			peintre_items !liste_items;
-			synchronize ();
-		done
-;;
-
+	while true do
+		clear_graph ();
+		let liste_items = ref [] in
+		if !affiche_originale then liste_items := items_originels::(!liste_items);
+		if !affiche_modifiee  then liste_items := items_deplaces::(!liste_items);
+		peintre_items (!liste_items);
+		synchronize ();
+		let event = wait_next_event [Key_pressed] in let key = event.key in
+		if key = 's' then y0 := !y0 -. 5.;
+		if key = 'z' then y0 := !y0 +. 5.;
+		if key = 'q' then x0 := !x0 -. 5.;
+		if key = 'd' then x0 := !x0 +. 5.;
+		if key = 'a' then zoom := !zoom +. 0.05;
+		if key = 'e' then zoom := !zoom -. 0.05;
+		if key = 'p' then rotation_base_y (0.05);
+		if key = 'i' then rotation_base_y (-0.05);
+		if key = 'o' then rotation_base_x (-0.05);
+		if key = 'l' then rotation_base_x (0.05);
+		if key = 'm' then rotation_base_z (0.05);
+		if key = 'k' then rotation_base_z (-0.05);
+		if key = 'r' then affiche_originale := (not !affiche_originale);
+		if key = 'f' then affiche_modifiee  := (not !affiche_modifiee);
+	done;;
 
 (*Fonction main : récupere les tableaux et lance la fonction en_sync_items.*)
 let main () =
-let noeuds,deplacements,forces,elements = lecture_fichier "resultat.txt" in
-print_string "Nombre d'éléments : ";
-print_int (Array.length elements); print_newline();
-
-
-let items_originels,items_deplaces = make_items_affichables elements noeuds forces deplacements in
-
-synchronize ();
-
-en_sync_items items_originels items_deplaces
-;;
+	let noeuds,deplacements,forces,elements = lecture_fichier "C:\\Users\\thoma\\OneDrive\\Bureau\\Beamer_Tipe\\Code\\Ocaml\\resultat.txt" in
+	print_string "Nombre d'éléments : ";
+	print_int (Array.length elements); print_newline();
+	let items_originels,items_deplaces = make_items_affichables elements noeuds forces deplacements in
+	en_sync_items items_originels items_deplaces;;
 
 main();; 
