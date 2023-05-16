@@ -93,8 +93,13 @@ type item_affichable = Arete of (point*point*int*int) | Noeud of (point*int*int)
 
 (*Fonction pour resize des intervalles (proportionnalité)*)
 let map debut1 fin1 debut2 fin2 x = 
-  let t = (x -. debut1)/.(fin1 -. debut1) in
-  (1. -. t)*. debut2 +. t*.fin2
+  if debut1<>fin1 then
+  begin
+	let t = (x -. debut1)/.(fin1 -. debut1) in
+	(1. -. t)*. debut2 +. t*.fin2
+  end
+  else debut2
+  
 ;;
 
 
@@ -123,13 +128,16 @@ let noeuds_deplaces noeuds deplacements =
 (*Calcule l'épaisseur à afficher des aretes. Attention, renvoie le max et le min des sections (unité d'origine)*)
 let epaisseurs_elements elements = 
 	let sections = Array.map (fun (i1,i2,young,section) -> section) elements in
-let max_section = Array.fold_left (fun section accu_section -> max section accu_section) 0. sections
-and min_section = Array.fold_left (fun section accu_section -> min section accu_section) infinity sections
-and min_epaisseur = 2. (*Constantes d'épaisseurs des traits*)
-in let max_epaisseur = (max_section/. min_section) *. min_epaisseur
+let max_section = Array.fold_left max 0. sections
+and min_section = Array.fold_left min infinity sections
+and min_epaisseur = 3. (*Constantes d'épaisseurs des traits*)
 in
-let tab_epaisseurs = Array.map (fun section -> int_of_float (map min_section max_section min_epaisseur max_epaisseur section) ) sections in
-
+print_float min_section;print_newline();print_float max_section;print_newline();print_newline(); let max_epaisseur = (max_section *. min_epaisseur) /. min_section
+in
+let tab_epaisseurs = Array.map (fun section -> let valeur = map min_section max_section min_epaisseur max_epaisseur section
+							in print_float valeur;print_newline(); int_of_float (valeur) ) sections in
+print_int tab_epaisseurs.(0); print_newline();
+print_newline();
 tab_epaisseurs,min_section,max_section
 ;;
 
