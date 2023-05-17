@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  16 MAY 2023 14:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  17 MAY 2023 15:10
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1076,7 +1076,7 @@ thkerncmss.
 ] [4
 
 ]
-<Images/city.png, id=243, 913.4125pt x 1370.11874pt>
+<Images/city.png, id=244, 913.4125pt x 1370.11874pt>
 File: Images/city.png Graphic file (type png)
 <use Images/city.png>
 Package pdftex.def Info: Images/city.png  used on input line 134.
@@ -1084,7 +1084,7 @@ Package pdftex.def Info: Images/city.png  used on input line 134.
  [5
 
  <./Images/city.png (PNG copy)>]
-<Images/cables.jpg, id=273, 913.4125pt x 1370.11874pt>
+<Images/cables.jpg, id=274, 913.4125pt x 1370.11874pt>
 File: Images/cables.jpg Graphic file (type jpg)
 <use Images/cables.jpg>
 Package pdftex.def Info: Images/cables.jpg  used on input line 159.
@@ -1094,7 +1094,7 @@ Package pdftex.def Info: Images/cables.jpg  used on input line 159.
  <./Images/cables.jpg>] [7
 
 ]
-<Images/MethodeDesElementsFinis.png, id=328, 72.27pt x 41.1939pt>
+<Images/MethodeDesElementsFinis.png, id=329, 72.27pt x 41.1939pt>
 File: Images/MethodeDesElementsFinis.png Graphic file (type png)
 <use Images/MethodeDesElementsFinis.png>
 Package pdftex.def Info: Images/MethodeDesElementsFinis.png  used on input line
@@ -1102,56 +1102,63 @@ Package pdftex.def Info: Images/MethodeDesElementsFinis.png  used on input line
 (pdftex.def)             Requested size: 325.21413pt x 185.37196pt.
 
 Overfull \hbox (1.16891pt too wide) in paragraph at lines 170--170
- [] 
+ [][] 
  []
 
 [8
 
  <./Images/MethodeDesElementsFinis.png>]
-<Images/cube.png, id=356, 462.528pt x 260.172pt>
-File: Images/cube.png Graphic file (type png)
-<use Images/cube.png>
-Package pdftex.def Info: Images/cube.png  used on input line 178.
-(pdftex.def)             Requested size: 388.52086pt x 218.54297pt.
+<Images/cubeFinal.png, id=357, 253.6677pt x 257.5221pt>
+File: Images/cubeFinal.png Graphic file (type png)
+<use Images/cubeFinal.png>
+Package pdftex.def Info: Images/cubeFinal.png  used on input line 193.
+(pdftex.def)             Requested size: 126.83353pt x 128.76073pt.
+ [9
 
-Overfull \hbox (64.47565pt too wide) in paragraph at lines 178--178
- [][] 
- []
-
-[9
-
- <./Images/cube.png>] [10
+ <./Images/cubeFinal.png>]
+[10
 
 ]
 <Images/CasFinal.png, id=414, 376.40625pt x 376.40625pt>
 File: Images/CasFinal.png Graphic file (type png)
 <use Images/CasFinal.png>
-Package pdftex.def Info: Images/CasFinal.png  used on input line 227.
+Package pdftex.def Info: Images/CasFinal.png  used on input line 243.
 (pdftex.def)             Requested size: 131.74416pt x 131.74416pt.
  [11
 
  <./Images/CasFinal.png>] [12
 
 ]
-<Images/Copium.png, id=470, 1929.2075pt x 1058.95625pt>
-File: Images/Copium.png Graphic file (type png)
-<use Images/Copium.png>
-Package pdftex.def Info: Images/Copium.png  used on input line 263.
-(pdftex.def)             Requested size: 327.96094pt x 180.02017pt.
+<Images/2D_exemple.png, id=470, 621.82312pt x 412.54124pt>
+File: Images/2D_exemple.png Graphic file (type png)
+<use Images/2D_exemple.png>
+Package pdftex.def Info: Images/2D_exemple.png  used on input line 291.
+(pdftex.def)             Requested size: 155.4554pt x 103.13506pt.
 
-Overfull \hbox (3.91573pt too wide) in paragraph at lines 263--263
-[][]  
+Overfull \hbox (13.19162pt too wide) in paragraph at lines 291--291
+ [] 
+ []
+
+<Images/3D_exemple.png, id=471, 577.40718pt x 457.71pt>
+File: Images/3D_exemple.png Graphic file (type png)
+<use Images/3D_exemple.png>
+Package pdftex.def Info: Images/3D_exemple.png  used on input line 291.
+(pdftex.def)             Requested size: 144.35144pt x 114.42722pt.
+
+Overfull \hbox (2.08766pt too wide) in paragraph at lines 291--291
+ [] 
  []
 
 [13
 
- <./Images/Copium.png>] [14
+ <./Images/2D_exemple.png> <./Images/3D_exemple.png>] [14
 
 ] [15
 
 ] [16
 
-] [17
+]
+[17
 
 ] [18
 
@@ -1159,7 +1166,7 @@ Overfull \hbox (3.91573pt too wide) in paragraph at lines 263--263
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-08.
+36.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
@@ -1344,47 +1351,47 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 )
 (Code/Ocaml/Affichage_FEM_3D.ml
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-189.
+260.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Overfull \hbox (37.33151pt too wide) in paragraph at lines 201--203
+Overfull \hbox (37.33151pt too wide) in paragraph at lines 271--273
 [][][][][][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 271--273
 [][][] 
  []
 
 
-Overfull \hbox (52.87007pt too wide) in paragraph at lines 201--203
+Overfull \hbox (52.87007pt too wide) in paragraph at lines 271--273
 [][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 271--273
 [][] 
  []
 
 
-Overfull \hbox (30.56287pt too wide) in paragraph at lines 201--203
+Overfull \hbox (30.56287pt too wide) in paragraph at lines 271--273
 [][] 
  []
 
 
-Overfull \hbox (39.48575pt too wide) in paragraph at lines 201--203
+Overfull \hbox (39.48575pt too wide) in paragraph at lines 271--273
 [][] 
  []
 
 
-Overfull \hbox (39.48575pt too wide) in paragraph at lines 201--203
+Overfull \hbox (39.48575pt too wide) in paragraph at lines 271--273
 [][] 
  []
 
 
-Overfull \hbox (26.10143pt too wide) in paragraph at lines 201--203
+Overfull \hbox (26.10143pt too wide) in paragraph at lines 271--273
 []  
  []
 
@@ -1436,6 +1443,21 @@ Overfull \hbox (26.10143pt too wide) in paragraph at lines 201--203
 ] [92
 
 
+] [93
+
+
+] [94
+
+
+] [95
+
+
+] [96
+
+
+] [97
+
+
 ]
 \tf@nav=\write6
 \openout6 = `MonTipe2.nav'.
@@ -1451,10 +1473,10 @@ Package rerunfilecheck Info: File `MonTipe2.out' has not changed.
 (rerunfilecheck)             Checksum: 6506940F3390839B907E27FE970099FA;2621.
  ) 
 Here is how much of TeX's memory you used:
- 27145 strings out of 476360
- 520750 string characters out of 5788025
- 3270993 words of memory out of 5000000
- 46790 multiletter control sequences out of 15000+600000
+ 27246 strings out of 476360
+ 522354 string characters out of 5788025
+ 3426993 words of memory out of 5000000
+ 46880 multiletter control sequences out of 15000+600000
  535036 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,18n,122p,404b,1633s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1464,11 +1486,11 @@ Here is how much of TeX's memory you used:
 /dpi600\ecss0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecss0600.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour
 /jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\thoma\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi0800.pk> <C:\Users\thoma\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0700.pk> <C:\Users\thoma\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\thoma\
+ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecsi0800.pk> <C:\Users\thoma\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0700.pk> <C:\Users\thoma\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\thoma\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\thoma\
 AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0500.pk> <C:\Users\
 thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi0500.pk> <C:\
 Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1000.pk
@@ -1476,14 +1498,15 @@ Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1000.pk
 440.pk><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmex10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmss10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/thoma/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/thoma/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thoma/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on MonTipe2.pdf (92 pages, 3893580 bytes).
+pe1/public/amsfonts/cm/cmmi7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/thoma/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/thoma/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/thoma/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
+/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on MonTipe2.pdf (97 pages, 3940263 bytes).
 PDF statistics:
- 3084 PDF objects out of 3580 (max. 8388607)
- 202 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3231 PDF objects out of 3580 (max. 8388607)
+ 212 named destinations out of 1000 (max. 500000)
+ 268 words of extra memory for PDF output out of 10000 (max. 10000000)
 
