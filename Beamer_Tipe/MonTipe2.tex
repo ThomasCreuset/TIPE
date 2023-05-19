@@ -72,10 +72,10 @@
 \setbeamersize{text margin left = 20px,text margin right = 20px} 
 
 % informations
-\author{\textit{Thomas CREUSET}}
+\author[\textit{Thomas CREUSET}]{\textit{Thomas CREUSET (11909) et Nicolas SEGALA (17862)}}
 \title{\uline{Pr\'esentation de TIPE}}
 \subtitle{\textit{\'Etude et optimisation d’un outil d'ing\'enierie du b\^atiment}}
-\date{\underline{\textit{num\'ero de candidat : 11909}}}
+\date[\textit{num\'ero de candidat  : 11909}]{}
 
 % document
 \begin{document}
@@ -85,8 +85,8 @@
 
 	% Problèmatique
 	\begin{frame}
-		\frametitle{\uline{Probl\`ematique}}
-		\begin{block}{Questions}
+		\frametitle{\uline{Probl\'ematique}}
+		\begin{block}{}
 			- Quel est le potentiel gain temporel du calcul analogique par rapport à la méthode purement
 numérique?\\
 			- Quels sont les enjeux pratiques de sa mise en place pour la méthode des éléments
@@ -104,7 +104,7 @@ finis?
 	% Choix du projet
 	\section{Choix du projet}
 	% frame 1.1
-	\subsection{La construction en ville: un enjeu pour les ing\'enieurs}
+	\subsection{La construction en ville : un enjeu pour les ing\'enieurs}
 	\begin{frame}
 		\frametitle{\uline{Choix du projet :}}
 		\framesubtitle{\textit{La construction en ville : un enjeu pour les ing\'enieurs}}
@@ -159,11 +159,11 @@ finis?
 	\end{frame}
 	
 	% Méthode des éléments finis
-	\section{M\'ethode des \'el\'ements finis}
+	\section{\'Elaboration de la m\'ethode des \'el\'ements finis}
 	%frame 2.1
 	\subsection{M\'ethode des \'el\'ements finis}
 	\begin{frame}
-		\frametitle{\uline{Choix du projet :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{M\'ethode des \'el\'ements finis}}
 		\centering
 		\includegraphics[scale=4.5]{Images/MethodeDesElementsFinis.png}
@@ -171,7 +171,7 @@ finis?
 	% frame 2.2
 	\subsection{M\'ethode des ressorts}
 	\begin{frame}
-		\frametitle{\uline{M\'ethode des \'el\'ements finis :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{M\'ethode des ressorts}}
 		\begin{columns}[t]
  			\begin{column}{5cm}
@@ -183,8 +183,8 @@ finis?
 				\begin{block}{}
 					\uline{Principe :}
 					\begin{itemize}
-						\item Discr\'etisation en un ensemble de points reli\'es par des ressorts.
-						\item Mod\'elisation des ressorts par la loi de Hooke
+						\item Discr\'etisation en un ensemble de points reli\'es par des ressorts
+						\item Mod\'elisation de l'action des ressorts par la loi de Hooke
 						\item Utile pour mod\'eliser des poutres dans un b\^atiment
 					\end{itemize}
 				\end{block}
@@ -194,29 +194,38 @@ finis?
 	% frame 2.3
 	\subsection{Loi de Hooke}
 	\begin{frame}
-		\frametitle{\uline{M\'ethode des \'el\'ements finis :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{Loi de Hooke}}
-		\begin{block}{Loi de Hooke}
-			\begin{equation}
-  				\vec{\mathcal{F}} = - k \cdot \Delta \ell \cdot \vec{u}
-  			\end{equation}
-		\end{block}
-		\begin{block}{Constante de raideur}
-			\begin{equation}
-				k = \frac{\mathrm{A} \cdot \mathrm{E}}{\mathrm{L}}
-			\end{equation}
-			avec :\\
-  			\begin{itemize}
-  				\item $\mathrm{A}$ : l'aire de la section de la poutre
-  				\item $\mathrm{E}$ : le module de Young du matériel
-  				\item $\mathrm{L}$ : la longueur de la poutre
-  			\end{itemize}
-		\end{block}
+		\begin{columns}[t]
+ 			\begin{column}{5cm}
+ 				\begin{block}{Loi de Hooke}
+					\begin{equation}
+  						\vec{\mathcal{F}} = - \mathit{k} \cdot \Delta \ell \cdot \vec{u}
+  					\end{equation}
+				\end{block}
+				\begin{figure}
+ 				 	\includegraphics[scale=0.62]{Images/Hooke.png}
+ 				\end{figure}
+			\end{column}
+			\begin{column}{5cm}
+				\begin{block}{Constante de raideur}
+					\begin{equation}
+						\mathit{k} = \frac{\mathit{A} \cdot \mathit{E}}{\mathit{L}}
+					\end{equation}
+					avec :\\
+  					\begin{itemize}
+  						\item $\mathit{A}$ : l'aire de la section de la poutre
+  						\item $\mathit{E}$ : le module de Young du matériel
+  						\item $\mathit{L}$ : la longueur de la poutre
+  					\end{itemize}
+				\end{block}
+  			\end{column}
+ 		\end{columns}
 	\end{frame}
 	%frame 2.4
 	\subsection{Deux \'etapes importantes}
 	\begin{frame}
-		\frametitle{\uline{M\'ethode des \'el\'ements finis :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{Deux astuces, rotation}}
 		\begin{columns}[t]
 			\begin{column}{5cm}
@@ -243,7 +252,7 @@ finis?
 	\end{frame}
 	%frame 2.5
 	\begin{frame}
-		\frametitle{\uline{M\'ethode des \'el\'ements finis :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{Deux \'etapes importantes, calcul de la solution }}
 		\begin{block}{Tri des noeuds (Conditions de Dirichlet et de Neumann)}
 			\begin{equation}
@@ -271,23 +280,25 @@ finis?
 			\end{align}
 		\end{block}
 	\end{frame}
+	%frame 2.6
 	\subsection{Affichage}
 	\begin{frame}
-		\frametitle{\uline{M\'ethode des \'el\'ements finis :}}
+		\frametitle{\uline{\'Elaboration de la m\'ethode des \'el\'ements finis :}}
 		\framesubtitle{\textit{Affichage}}
 		\uline{Deux exemples de rendu par l'algorithme du peintre :}
 		\begin{columns}[t]
 			\begin{column}{5cm}
 				\begin{figure}
- 				 	\includegraphics[scale=0.25]{Images/2D_exemple.png}
+ 				 	\includegraphics[scale=0.26]{Images/2D_exemple.png}
  				\end{figure}
   			\end{column}
  			\begin{column}{5cm}
  				\begin{figure}
- 				 	\includegraphics[scale=0.25]{Images/3D_exemple.png}
+ 				 	\includegraphics[scale=0.26]{Images/3D_exemple.png}
  				\end{figure}
 			\end{column}
  		\end{columns}
+ 		\includegraphics[scale=0.69]{Images/legende.png}
 	\end{frame} 
 
 	% Optimisation
@@ -299,9 +310,9 @@ finis?
 		\framesubtitle{\textit{Calculs analogique, int\'er\^ets}}
 		\uline{Int\'er\^ets du calcul analogique :}
 		\begin{itemize}
-			\item parall\`elisation et quasi-linéarisation des produits matriciel ($O(n^{2.38})$ avec l'algorithme de Strassen à $O(n^2)$)
+			\item parall\'elisation et quasi-linéarisation des produits matriciels : $O(n^{2.38})$ avec l'algorithme de Strassen à $O(n^2)$ en analogique
 			\item ancienne m\'ethode fiable
-			\item domaine qui commence \`a se red\'evelopper (Mythic)
+			\item domaine qui sucite un regain d'int\'er\^et (Mythic)
 		\end{itemize}
 	\end{frame}
 	%frame 3.2
@@ -312,8 +323,7 @@ finis?
 		Pas encore fait
 	\end{frame}
 	
-	
-	
+	% Conlusion
 	\section{Conclusion}
 	\begin{frame}
 		\frametitle{\uline{Conclusion}}

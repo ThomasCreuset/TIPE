@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  17 MAY 2023 15:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.14)  19 MAY 2023 15:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1047,27 +1047,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: Trying Plan B...
- (MonTipe2.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
-
-
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
-
-
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 81.
-
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
-erncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-) [1
+ (MonTipe2.nav) [1
 
 {C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
 
@@ -1076,7 +1056,7 @@ thkerncmss.
 ] [4
 
 ]
-<Images/city.png, id=244, 913.4125pt x 1370.11874pt>
+<Images/city.png, id=243, 913.4125pt x 1370.11874pt>
 File: Images/city.png Graphic file (type png)
 <use Images/city.png>
 Package pdftex.def Info: Images/city.png  used on input line 134.
@@ -1084,7 +1064,7 @@ Package pdftex.def Info: Images/city.png  used on input line 134.
  [5
 
  <./Images/city.png (PNG copy)>]
-<Images/cables.jpg, id=274, 913.4125pt x 1370.11874pt>
+<Images/cables.jpg, id=273, 913.4125pt x 1370.11874pt>
 File: Images/cables.jpg Graphic file (type jpg)
 <use Images/cables.jpg>
 Package pdftex.def Info: Images/cables.jpg  used on input line 159.
@@ -1094,7 +1074,7 @@ Package pdftex.def Info: Images/cables.jpg  used on input line 159.
  <./Images/cables.jpg>] [7
 
 ]
-<Images/MethodeDesElementsFinis.png, id=329, 72.27pt x 41.1939pt>
+<Images/MethodeDesElementsFinis.png, id=328, 72.27pt x 41.1939pt>
 File: Images/MethodeDesElementsFinis.png Graphic file (type png)
 <use Images/MethodeDesElementsFinis.png>
 Package pdftex.def Info: Images/MethodeDesElementsFinis.png  used on input line
@@ -1108,7 +1088,7 @@ Overfull \hbox (1.16891pt too wide) in paragraph at lines 170--170
 [8
 
  <./Images/MethodeDesElementsFinis.png>]
-<Images/cubeFinal.png, id=357, 253.6677pt x 257.5221pt>
+<Images/cubeFinal.png, id=356, 253.6677pt x 257.5221pt>
 File: Images/cubeFinal.png Graphic file (type png)
 <use Images/cubeFinal.png>
 Package pdftex.def Info: Images/cubeFinal.png  used on input line 193.
@@ -1116,49 +1096,89 @@ Package pdftex.def Info: Images/cubeFinal.png  used on input line 193.
  [9
 
  <./Images/cubeFinal.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 224
+.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 224
+.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
+ut line 224.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
+erncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+<Images/Hooke.png, id=383, 240.9pt x 144.54pt>
+File: Images/Hooke.png Graphic file (type png)
+<use Images/Hooke.png>
+Package pdftex.def Info: Images/Hooke.png  used on input line 224.
+(pdftex.def)             Requested size: 149.35645pt x 89.61386pt.
+
+Overfull \hbox (7.09267pt too wide) in paragraph at lines 224--224
+ [] 
+ []
+
 [10
 
-]
-<Images/CasFinal.png, id=414, 376.40625pt x 376.40625pt>
+ <./Images/Hooke.png>]
+<Images/CasFinal.png, id=415, 376.40625pt x 376.40625pt>
 File: Images/CasFinal.png Graphic file (type png)
 <use Images/CasFinal.png>
-Package pdftex.def Info: Images/CasFinal.png  used on input line 243.
+Package pdftex.def Info: Images/CasFinal.png  used on input line 252.
 (pdftex.def)             Requested size: 131.74416pt x 131.74416pt.
  [11
 
  <./Images/CasFinal.png>] [12
 
 ]
-<Images/2D_exemple.png, id=470, 621.82312pt x 412.54124pt>
+<Images/2D_exemple.png, id=471, 621.82312pt x 412.54124pt>
 File: Images/2D_exemple.png Graphic file (type png)
 <use Images/2D_exemple.png>
-Package pdftex.def Info: Images/2D_exemple.png  used on input line 291.
-(pdftex.def)             Requested size: 155.4554pt x 103.13506pt.
+Package pdftex.def Info: Images/2D_exemple.png  used on input line 302.
+(pdftex.def)             Requested size: 161.6702pt x 107.2582pt.
 
-Overfull \hbox (13.19162pt too wide) in paragraph at lines 291--291
+Overfull \hbox (19.40642pt too wide) in paragraph at lines 302--302
  [] 
  []
 
-<Images/3D_exemple.png, id=471, 577.40718pt x 457.71pt>
+<Images/3D_exemple.png, id=472, 577.40718pt x 457.71pt>
 File: Images/3D_exemple.png Graphic file (type png)
 <use Images/3D_exemple.png>
-Package pdftex.def Info: Images/3D_exemple.png  used on input line 291.
-(pdftex.def)             Requested size: 144.35144pt x 114.42722pt.
+Package pdftex.def Info: Images/3D_exemple.png  used on input line 302.
+(pdftex.def)             Requested size: 150.12233pt x 119.00179pt.
 
-Overfull \hbox (2.08766pt too wide) in paragraph at lines 291--291
+Overfull \hbox (7.85855pt too wide) in paragraph at lines 302--302
  [] 
+ []
+
+<Images/legende.png, id=473, 481.8pt x 48.18pt>
+File: Images/legende.png Graphic file (type png)
+<use Images/legende.png>
+Package pdftex.def Info: Images/legende.png  used on input line 302.
+(pdftex.def)             Requested size: 332.44235pt x 33.24422pt.
+
+Overfull \hbox (8.39714pt too wide) in paragraph at lines 302--302
+[][]  
  []
 
 [13
 
- <./Images/2D_exemple.png> <./Images/3D_exemple.png>] [14
+ <./Images/2D_exemple.png> <./Images/3D_exemple.png> <./Images/legende.png>] [1
+4
 
 ] [15
 
 ] [16
 
-]
-[17
+] [17
 
 ] [18
 
@@ -1166,7 +1186,7 @@ Overfull \hbox (2.08766pt too wide) in paragraph at lines 291--291
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-36.
+46.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
@@ -1470,43 +1490,42 @@ Overfull \hbox (26.10143pt too wide) in paragraph at lines 271--273
 
  (MonTipe2.aux)
 Package rerunfilecheck Info: File `MonTipe2.out' has not changed.
-(rerunfilecheck)             Checksum: 6506940F3390839B907E27FE970099FA;2621.
+(rerunfilecheck)             Checksum: C9385BA7672DB983081931DD98DC4954;2731.
  ) 
 Here is how much of TeX's memory you used:
- 27246 strings out of 476360
- 522354 string characters out of 5788025
- 3426993 words of memory out of 5000000
- 46880 multiletter control sequences out of 15000+600000
- 535036 words of font info for 82 fonts, out of 8000000 for 9000
+ 27254 strings out of 476360
+ 522621 string characters out of 5788025
+ 3427993 words of memory out of 5000000
+ 46890 multiletter control sequences out of 15000+600000
+ 532036 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,18n,122p,404b,1633s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,122p,412b,1633s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi525\tctt
 0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi52
 5\ectt0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 /dpi600\ecss0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecss0600.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
+/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
 ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecsi0800.pk> <C:\Users\thoma\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0700.pk> <C:\Users\thoma\AppData\Loca
 l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\thoma\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\thoma\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0500.pk> <C:\Users\
-thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi0500.pk> <C:\
-Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1000.pk
-> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1
-440.pk><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmex10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmmi10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/thoma/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/thoma/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/thoma/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
-/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on MonTipe2.pdf (97 pages, 3940263 bytes).
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0500.pk> <C:\Users\thoma\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi0500.pk> <C:\Users\
+thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1000.pk> <C:\
+Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk
+><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mex10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmss10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/thoma/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/thoma/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thoma
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on MonTipe2.pdf (97 pages, 4007623 bytes).
 PDF statistics:
- 3231 PDF objects out of 3580 (max. 8388607)
+ 3234 PDF objects out of 3580 (max. 8388607)
  212 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 278 words of extra memory for PDF output out of 10000 (max. 10000000)
 
