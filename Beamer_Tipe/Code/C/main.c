@@ -21,13 +21,9 @@ Documentation:
 
 /* - Imports - */
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include <string.h>
+#include "standard_lib.h"
 #include "module_matrice.h"
+#include "analogue.h"
 
 
 /* - Constantes - */
@@ -555,7 +551,7 @@ int main()
 {
     srand(time(NULL));
 
-    applique_elements_finis("donnees.txt", "resultat.txt");
+    applique_elements_finis("donnees2D.txt", "resultat2D.txt");
 
     printf("Termine.\n");
     return 0;

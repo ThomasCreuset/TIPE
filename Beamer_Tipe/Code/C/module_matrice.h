@@ -17,6 +17,7 @@ struct matrice_s {
 
 typedef struct matrice_s matrice;;
 
+
 /*  -Déclarations fonctions (f) et procédures (p)-  */
 
 matrice* creer_matrice(int lignes, int colonnes);
@@ -26,7 +27,7 @@ void supprimer_matrice(matrice* matriceEntree);
 // p - vide la mémoire utilisée par la matrice 'matriceEntree'
 
 matrice* sous_matrice(matrice* matriceEntree, int ligneDepart, int colonneDepart, int nbreLignes, int nbreColonnes);
-// f - créer la sous matrice comme spécifiée
+// f - crée la sous matrice comme spécifiée
 
 matrice* add_matrice(matrice* matriceA, matrice* matriceB);
 // f - additionne les matrices 'matriceA' et 'matriceB' de manière non destructive
